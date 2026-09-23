@@ -13,8 +13,11 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
+import { Roles } from "@/constants/roles";
+import { userService } from "@/services/user.service";
+import { redirect } from "next/navigation";
 
-export default function DashboardLayout({
+export default async function DashboardLayout({
   admin,
   user,
 }: {
@@ -22,8 +25,14 @@ export default function DashboardLayout({
   admin: React.ReactNode;
   user: React.ReactNode;
 }) {
+  const { data } = await userService.getSession();
+
+  if (!data?.user) {
+    redirect("/login");
+  }
+
   const userInfo = {
-    role: "admin",
+    role: data.user.role === Roles.admin ? "admin" : "user",
   };
 
   return (

@@ -24,7 +24,7 @@ export function RegisterForm({ ...props }: React.ComponentProps<typeof Card>) {
     try {
       const res = await authClient.signIn.social({
         provider: "google",
-        callbackURL: "http://localhost:3000",
+        callbackURL: `${window.location.origin}/dashboard`,
       });
       console.log("Google Login Response:", res);
       if (res?.error) {
