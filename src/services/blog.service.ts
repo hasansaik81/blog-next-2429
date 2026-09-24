@@ -180,10 +180,12 @@ export const blogService = {
       };
     }
   },
+
+
     
 //   getBlogById:async function(id:string){
 //   try{
-//     const res = await fetch(`${API_URL}/posts${id}`);
+//     const res = await fetch(`${API_URL}/api/posts${id}`);
 //     const data=await res.json();
 //     return {data:data,error:null};
 //   }catch(err){

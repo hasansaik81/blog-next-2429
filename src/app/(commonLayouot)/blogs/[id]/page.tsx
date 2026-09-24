@@ -94,6 +94,9 @@ import { Separator } from "@/components/ui/separator";
 import { blogService } from "@/services/blog.service";
 import { BlogPost } from "@/types/blog.types";
 
+
+//* [ { id: asdfasdfasd }, {id : asdfasdadsfa}, {id: asdfasdfasfasd} ]
+
 export async function generateStaticParams() {
   const { data } = await blogService.getBlogPosts();
 
