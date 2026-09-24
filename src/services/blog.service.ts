@@ -76,6 +76,12 @@ interface GetBlogsParams {
   search?: string;
 }
 
+export interface BlogData{
+  title:string;
+  content:string;
+  tag?:string[];
+}
+
 export const blogService = {
   getBlogPosts: async function (
     params?: GetBlogsParams,

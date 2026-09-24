@@ -1,20 +1,14 @@
-"use client"
-import { useEffect } from "react";
+import { getBlogs } from "@/actions/blog.actions";
+import { useEffect, useState } from "react";
 
-export default function AboutError ({
-    error,reset
-}:{error:Error&{digest?:string};
-reset:()=>void;
-}){
-    useEffect(()=>{
-        
-        console.error(error);
-    },[]);
-    return(
-        <div>
-              <h1> Something Went Wrong: Please try again </h1>
-      <button onClick={() => reset()}>Retry</button>
-        </div>
-    )
+export default function AboutPage(){
+  const [data,setData]=useState();
+  const [error,setError]=useState<{message:string}|null>(null);
 
 }
+
+useEffect(()=>{
+  (async()=>{
+    const {data,error}=await getBlogs()
+  })
+})
